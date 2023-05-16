@@ -1,5 +1,6 @@
 import com.ververica.cdc.connectors.mysql.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
+import com.ververica.cdc.debezium.DebeziumSourceFunction;
 import com.ververica.cdc.debezium.StringDebeziumDeserializationSchema;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
@@ -16,7 +17,7 @@ public class FlinkCDC1 {
         executionEnvironment.setParallelism(1);
 
         MySqlSource.Builder<String> builder = MySqlSource.builder();
-        builder.hostname("localhost")
+        DebeziumSourceFunction<String> mysqlSourceFunction = builder.hostname("localhost")
                 .port(3306)
                 .username("root")
                 .password("L2Bs9fD#")
