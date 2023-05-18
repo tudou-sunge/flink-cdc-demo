@@ -16,6 +16,9 @@
         <scala.library.version>2.11</scala.library.version>
         <spark.version>2.4.7</spark.version>
         <hadoop.version>3.2.1</hadoop.version>
+<!--        用flinkSQL TABLE API 时用13版本-->
+        <flink.version>1.13.0</flink.version>
+        <!--        <flink.version>1.12.0</flink.version>-->
         <encoding>UTF-8</encoding>
         <junit.version>4.12</junit.version>
         <hutool.version>5.7.9</hutool.version>
@@ -28,17 +31,17 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
-            <version>1.12.0</version>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.12</artifactId>
-            <version>1.12.0</version>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients_2.12</artifactId>
-            <version>1.12.0</version>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -53,7 +56,7 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner-blink_2.12</artifactId>
-            <version>1.12.0</version>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>com.ververica</groupId>
