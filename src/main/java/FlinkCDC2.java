@@ -2,6 +2,7 @@ import com.ververica.cdc.connectors.mysql.MySqlSource;
 import com.ververica.cdc.connectors.mysql.table.StartupOptions;
 import com.ververica.cdc.debezium.DebeziumSourceFunction;
 import com.ververica.cdc.debezium.StringDebeziumDeserializationSchema;
+import deserializer.CustomMysqlDeserialization;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
@@ -55,8 +56,8 @@ public class FlinkCDC2 {
                 .databaseList("test")
                 // 监听的表，可以是多个，必须是库名.表名
                 .tableList("test.test1")
-                // 反序列化器
-                .deserializer(new StringDebeziumDeserializationSchema())
+                // 一定义反序列化器
+                .deserializer(new CustomMysqlDeserialization())
                 .startupOptions(StartupOptions.initial())
                 // 所有链接这个数据库实例的链接的唯一值
                 .serverId(1)
